@@ -15,6 +15,7 @@ from lesson_5_homework.car_class_task import Car_task
 from lesson_5_homework.employee_class import Employee, employee_to_list, employee_display_for_3, \
    data_employee_input_to_file
 from lesson_5_homework.information_class import Information, person_input_for_3, person_display_for_3
+from lesson_5_homework.patient_class import person_input_for_1, Patient, person_display
 from lesson_5_homework.pet_class import Pet
 
 #if __name__ == '__main__':
@@ -58,12 +59,42 @@ from lesson_5_homework.information_class import Information
 
 
   # print(list_persons)
-from lesson_5_homework.realitem_class import Realitem, item_input_for_3, item_display_for_3
+#from lesson_5_homework.realitem_class import Realitem, item_input_for_3, item_display_for_3
+
+#if __name__ == '__main__':
+   #realitem = Realitem()
+  # list_items = item_input_for_3()
+ #  item1 = list_items[0]
+ #  item2 = list_items[1]
+ #  item3 = list_items[2]
+ #  print('\n', item1, '\n',item2,'\n',item3)
+from lesson_5_homework.procedure_class import Procedure
 
 if __name__ == '__main__':
-   realitem = Realitem()
-   list_items = item_input_for_3()
-   item1 = list_items[0]
-   item2 = list_items[1]
-   item3 = list_items[2]
-   print('\n', item1, '\n',item2,'\n',item3)
+   person_me = Patient()
+   person_me.input_fio()
+   person_me.input_adress()
+   person_me.input_phone()
+   person_me.input_emergphone()
+   fio = person_me.ret_fio()
+   adress = person_me.ret_adress()
+   phone = person_me.ret_phone()
+   emerge_phone = person_me.ret_emergphone()
+   procedure = []
+   for proc in range(1,4):
+      procedure1 = Procedure()
+      procedure1.set_proced_name()
+      procedure1.set_proced_date()
+      procedure1.set_proced_doctor_name()
+      procedure1.set_proced_cost()
+      proced_name = procedure1.ret_proced_name()
+      proced_date = procedure1.ret_proced_date()
+      proced_doctor_name = procedure1.ret_doctor_name()
+      proced_cost = procedure1.ret_cost()
+      proced = [proced_name,proced_date,proced_doctor_name,proced_cost]
+      procedure.append(proced)
+   total_cost = 0
+   for i in procedure:
+      total_cost += float(i[3])
+   print(procedure, total_cost)
+
