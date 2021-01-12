@@ -63,4 +63,7 @@ from lesson_5_homework.realitem_class import Realitem, item_input_for_3, item_di
 if __name__ == '__main__':
    realitem = Realitem()
    list_items = item_input_for_3()
-   item_display_for_3(list_items)
+   item1 = list_items[0]
+   item2 = list_items[1]
+   item3 = list_items[2]
+   print('\n', item1, '\n',item2,'\n',item3)

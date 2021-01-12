@@ -30,7 +30,7 @@ class Realitem:
 
 
     def __str__(self):
-        return "Description : " + self._description + "\n" + "Age : " + str(self._price) + "\n" + "Adress : " + self._stock
+        return "Description : " + self._description + "\n" + "Price : " + str(self._price) + "\n" + "Stock : " + self._stock
 
 def item_input_for_3():
    item = Realitem()
