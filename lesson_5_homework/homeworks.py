@@ -58,5 +58,9 @@ from lesson_5_homework.information_class import Information
 
 
   # print(list_persons)
+from lesson_5_homework.realitem_class import Realitem, item_input_for_3, item_display_for_3
 
 if __name__ == '__main__':
+   realitem = Realitem()
+   list_items = item_input_for_3()
+   item_display_for_3(list_items)
