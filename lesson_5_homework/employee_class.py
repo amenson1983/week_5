@@ -1,5 +1,5 @@
 class Employee:
-    def __init__(self, name = None, taxnum = None, salary=None,department=None,position=None):
+    def __init__(self, taxnum = None, name = None, department=None,position=None):
         self._name = name
         self._taxnum = taxnum
         self._department = department
@@ -56,43 +56,3 @@ class Employee:
 
     def __str__(self):
         return "Name : " + str(self._name) + "\n" + "Taxnum : " + str(self._taxnum) + "\n" + "Department : " + str(self._department) + "\nPosition : " + str(self._position)
-
-def employee_to_list():
-        employee = Employee()
-        list_empl = []
-        for num in range(0, 3):
-            employee.input_name()
-            employee.input_department()
-            employee.input_position()
-            employee.input_taxnum()
-            name = employee.ret_name()
-            department = employee.ret_department()
-            position = employee.ret_position()
-            taxnum = employee.ret_taxnum()
-            employee1 = Employee(name, taxnum, department, position)
-            list_empl.append(employee1)
-        return list_empl
-
-def employee_display_for_3(list_empl):
-   for person in list_empl:
-      print()
-      print("Name: ", person.ret_name())
-      print("Department: ", person.ret_department())
-      print("Position: ", person.ret_position())
-      print("Tax number: ", person.ret_taxnum())
-      print()
-
-def data_employee_input_to_file():
-    employee_file = open('employee_file.csv','a')
-    nextline = 'y'
-    while nextline.lower() == 'y':
-        name = input('Point name:')
-        taxnum = input('Point taxnum:')
-        department = input('Point department:')
-        position = input('Point position:')
-        employee_file.write(name + '\n')
-        employee_file.write(str(taxnum) + '\n')
-        employee_file.write(department + '\n')
-        employee_file.write(position + '\n')
-        nextline = input('Continue? "y" - yes, rest means "no"')
-    employee_file.close()

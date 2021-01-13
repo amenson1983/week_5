@@ -1,3 +1,6 @@
+from lesson_5_homework.patient_class import Patient
+
+
 class Procedure:
     def __init__(self, proced_name=None, proced_date=None, proced_doctor_name=None, proced_cost=None):
         self._proced_name = proced_name
@@ -31,5 +34,6 @@ class Procedure:
 
     def __str__(self):
         return "FIO : " + str(self.ret_proced_name()) + "\n" + "emergphone : " + str(self.ret_proced_date()) + "\n" + "Adress : " + str(self.ret_doctor_name()) + "\nPhone : " + str(self.ret_cost())
+
 
 

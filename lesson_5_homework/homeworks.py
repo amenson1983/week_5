@@ -70,31 +70,44 @@ from lesson_5_homework.information_class import Information
  #  print('\n', item1, '\n',item2,'\n',item3)
 from lesson_5_homework.procedure_class import Procedure
 
+#if __name__ == '__main__':
+
+ #  person_me = Patient()
+  # person_me.input_fio()
+   #person_me.input_adress()
+   #person_me.input_phone()
+   #person_me.input_emergphone()
+   #fio = person_me.ret_fio()
+   #adress = person_me.ret_adress()
+   #phone = person_me.ret_phone()
+   #emerge_phone = person_me.ret_emergphone()
+   #procedure = []
+   #for proc in range(1, 4):
+   #   procedure1 = Procedure()
+   #   procedure1.set_proced_name()
+   #   procedure1.set_proced_date()
+   #   procedure1.set_proced_doctor_name()
+   #   procedure1.set_proced_cost()
+   #   proced_name = procedure1.ret_proced_name()
+   #   proced_date = procedure1.ret_proced_date()
+   #   proced_doctor_name = procedure1.ret_doctor_name()
+   #   proced_cost = procedure1.ret_cost()
+   #   proced = [proced_name, proced_date, proced_doctor_name, proced_cost]
+   #   procedure.append(proced)
+   #total_cost = 0
+   #for i in procedure:
+   #   total_cost += float(i[3])
+   #print(total_cost, person_me.__str__())
+import pickle
 if __name__ == '__main__':
-   person_me = Patient()
-   person_me.input_fio()
-   person_me.input_adress()
-   person_me.input_phone()
-   person_me.input_emergphone()
-   fio = person_me.ret_fio()
-   adress = person_me.ret_adress()
-   phone = person_me.ret_phone()
-   emerge_phone = person_me.ret_emergphone()
-   procedure = []
-   for proc in range(1,4):
-      procedure1 = Procedure()
-      procedure1.set_proced_name()
-      procedure1.set_proced_date()
-      procedure1.set_proced_doctor_name()
-      procedure1.set_proced_cost()
-      proced_name = procedure1.ret_proced_name()
-      proced_date = procedure1.ret_proced_date()
-      proced_doctor_name = procedure1.ret_doctor_name()
-      proced_cost = procedure1.ret_cost()
-      proced = [proced_name,proced_date,proced_doctor_name,proced_cost]
-      procedure.append(proced)
-   total_cost = 0
-   for i in procedure:
-      total_cost += float(i[3])
-   print(procedure, total_cost)
+   import pickle
+   a = {'1':'A','2':'B'}
+   my_test_file = open('test_dict.dat','wb')
+   pickle.dump(a,my_test_file)
+   my_test_file.close()
+   print(a.get('2'))
+   income_file = open('test_dict.dat','rb')
+   inc_file = pickle.load(income_file)
+   income_file.close()
+   print(inc_file)
 
