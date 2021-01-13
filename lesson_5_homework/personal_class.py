@@ -12,11 +12,11 @@ filename = 'employees.dat'
 def load_emploees():
     try:
         input_file = open(filename,'rb')
-        employee_dict = pickle.load(input_file)
+        my_emploees = pickle.load(input_file)
         input_file.close()
     except IOError:
-        employee_dict = {}
-    return employee_dict
+        my_emploees = {}
+    return my_emploees
 
 
 def get_menu_choice():
@@ -27,30 +27,24 @@ def get_menu_choice():
     print('4. Change')
     print('5. Quit')
     choice = int(input('Please make a choice: '))
-    while choice < look_up_ and choice > quit_:
+    while choice < look_up_ or choice > quit_:
         choice = int(input('Please make a choice: '))
     return choice
 
 
+
 def look_up(my_emploees):
-    try:
-        taxnum = int(input('Enter your tax number: '))
-    except TypeError:
-        taxnum = int(input('Enter your tax number: '))
-    print(my_emploees.get(taxnum, "Number has not been found"))
+        taxnum = str(input('Enter your tax number: '))
+        message = my_emploees.get(taxnum)
+        print(message)
 
 
 def add_emp(my_emploees):
-    emploees1 = Employee()
-    emploees1.input_taxnum()
-    emploees1.input_name()
-    emploees1.input_department()
-    emploees1.input_position()
-    name = emploees1.ret_name()
-    taxnum = emploees1.ret_taxnum()
-    department = emploees1.ret_department()
-    position = emploees1.ret_position()
-    entry = emploees1(taxnum,name, department,position)
+    taxnum = input('Put tax number:')
+    name = input('Put name:')
+    department = input('Put department:')
+    position = input('Put position:')
+    entry = Employee(taxnum, name, department,position)
     if taxnum not in my_emploees:
         my_emploees[taxnum] = entry
         print('Entry has been added')
@@ -58,14 +52,14 @@ def add_emp(my_emploees):
 
 
 def delete_emp(my_emploees):
-    taxnum = int(input("Input tax number for deletion: "))
+    taxnum = input("Input tax number for deletion: ")
     if taxnum in my_emploees:
         del my_emploees[taxnum]
     else: print('Tax number has not been found')
 
 
 def change(my_emploees):
-    taxnumber = int(input('Put tax number: '))
+    taxnumber = input('Put tax number: ')
     if taxnumber in my_emploees:
         emploees1 = Employee()
         emploees1.input_taxnum()
@@ -76,17 +70,17 @@ def change(my_emploees):
         taxnum = emploees1.ret_taxnum()
         department = emploees1.ret_department()
         position = emploees1.ret_position()
-        entry = emploees1(taxnum, name, department, position)
+        entry = Employee(taxnum, name, department, position)
         my_emploees[taxnum] = entry
         print('Information has been updated')
-    else: print('The numberhas not been found at dictionary')
+    else: print('The number has not been found at dictionary')
 
 
 def save_emploees(my_emploees):
     output_file = open(filename,'wb')
-    pickle.dump(my_emploees,output_file)
+    pickle.dump(my_emploees, output_file)
     output_file.close()
-    main()
+
 
 
 def main():
@@ -105,14 +99,10 @@ def main():
     save_emploees(my_emploees)
 
 
-
-
-
-
-
-
-
 if __name__ == '__main__':
+    main()
+    #dict = load_emploees()
+    #print(str(dict.get('304')))
 
 
 
