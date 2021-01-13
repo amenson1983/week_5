@@ -16,6 +16,7 @@ from lesson_5_homework.employee_class import Employee, employee_to_list, employe
    data_employee_input_to_file
 from lesson_5_homework.information_class import Information, person_input_for_3, person_display_for_3
 from lesson_5_homework.patient_class import person_input_for_1, Patient, person_display
+from lesson_5_homework.personal_class import main
 from lesson_5_homework.pet_class import Pet
 
 #if __name__ == '__main__':
@@ -100,14 +101,5 @@ from lesson_5_homework.procedure_class import Procedure
    #print(total_cost, person_me.__str__())
 import pickle
 if __name__ == '__main__':
-   import pickle
-   a = {'1':'A','2':'B'}
-   my_test_file = open('test_dict.dat','wb')
-   pickle.dump(a,my_test_file)
-   my_test_file.close()
-   print(a.get('2'))
-   income_file = open('test_dict.dat','rb')
-   inc_file = pickle.load(income_file)
-   income_file.close()
-   print(inc_file)
+    main()
 

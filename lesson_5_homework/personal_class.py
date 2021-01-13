@@ -102,7 +102,7 @@ def main():
 if __name__ == '__main__':
     main()
     #dict = load_emploees()
-    #print(str(dict.get('304')))
+    #print(str(dict))
 
 
 
