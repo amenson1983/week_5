@@ -12,8 +12,6 @@ from lesson_5_homework.car_class import car
    #book1.input_producer()
    #print(book1.__str__())
 from lesson_5_homework.car_class_task import Car_task
-from lesson_5_homework.employee_class import Employee, employee_to_list, employee_display_for_3, \
-   data_employee_input_to_file
 from lesson_5_homework.information_class import Information, person_input_for_3, person_display_for_3
 from lesson_5_homework.patient_class import person_input_for_1, Patient, person_display
 from lesson_5_homework.personal_class import main
@@ -100,6 +98,9 @@ from lesson_5_homework.procedure_class import Procedure
    #   total_cost += float(i[3])
    #print(total_cost, person_me.__str__())
 import pickle
+#if __name__ == '__main__':
+    #main() #task number 7
+
 if __name__ == '__main__':
-    main()
+
 

@@ -99,8 +99,8 @@ def main():
     save_emploees(my_emploees)
 
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+    #main()
     #dict = load_emploees()
     #print(str(dict))
 
