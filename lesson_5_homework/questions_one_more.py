@@ -4,16 +4,17 @@ import pickle
 
 filename = 'questions.dat'
 filename1 = 'user_answers.dat'
-filename0 = 'questions.dat'
+filename0 = 'correct_answers.dat'
 create = 1
 start_ = 2
 show_res = 3
 clear_ = 4
 quit_ = 5
+question_list = {}
+correct_list = {}
+user_list = {}
 
-
-
-def questions_input1(question_list,correct_list):
+def questions_input1():
     for i in range(0,2):
         first_question = Questions()
         first_question.input_question()
@@ -28,14 +29,14 @@ def questions_input1(question_list,correct_list):
         var2 = first_question.ret_ans_2()
         var3 = first_question.ret_ans_3()
         var4 = first_question.ret_ans_4()
-        message1 = str('Variant 1 : ' + var1 +'Variant 2 : ' + var2)
-        message2 = str('Variant 3 : ' + var3 +'Variant 4 : ' + var4)
+        message1 = str('   Variant 1 : ' + var1 +'   Variant 2 : ' + var2)
+        message2 = str('   Variant 3 : ' + var3 +'   Variant 4 : ' + var4)
         message = message1 + message2
         question_list[question] = message
-        correct_item = {question:correct_answer}
-        correct_list.update(correct_item)
+        correct_item = correct_answer
+        correct_list[question] = correct_item
         save_questions1(question_list)
-    print(question_list,correct_list)
+        save_correct_answers1(correct_list)
     return question_list,correct_list
 
 def save_questions1(question_list):
@@ -95,27 +96,25 @@ def main():
     while choice != quit_:
         choice = get_menu_choice_questions()
         if choice == create:
-            question_list= load_questions1(filename)
-            correct_list = load_correct_answers1(filename0)
-            correct_list, question_list = questions_input1(question_list,correct_list)
+            question_list, correct_list = questions_input1()
             save_questions1(question_list)
             save_correct_answers1(correct_list)
         elif choice == start_:
             question_list = load_questions1(filename)
             user_list = victorine(question_list)
             save_user_answers1(user_list)
-        #elif choice == show_res:
-            #user_answers = load_user_answers1(filename1)
-            #correct_answers = load_correct_answers1(filename0)
-           # count = 0
-           # for key in user_answers:
-               # if correct_answers[key] == user_answers[key]:
-                 #   count +=1
-               # else: count +=0
-         #   print(count)
-
-
-        #elif choice == clear_:
+        elif choice == show_res:
+            user_list = load_user_answers1(filename1)
+            correct_answers = load_correct_answers1(filename0)
+            sum = 0
+            for key in user_list:
+                if user_list[key] == correct_answers[key]:
+                    sum +=1
+            print('Total score: ', sum)
+        elif choice == clear_:
+            user_list = load_user_answers1(filename1)
+            user_list.clear()
+            save_user_answers1(user_list)
 
 if __name__ == '__main__':
     main()
