@@ -15,7 +15,7 @@ correct_list = {}
 user_list = {}
 
 def questions_input1():
-    for i in range(0,2):
+    for i in range(1,9):
         first_question = Questions()
         first_question.input_question()
         first_question.input_ans_1()
@@ -110,6 +110,7 @@ def main():
             for key in user_list:
                 if user_list[key] == correct_answers[key]:
                     sum +=1
+            print('___________________')
             print('Total score: ', sum)
         elif choice == clear_:
             user_list = load_user_answers1(filename1)
@@ -118,8 +119,7 @@ def main():
 
 if __name__ == '__main__':
     main()
-    #user_list = load_questions1(filename)
-    #correct_list = load_correct_answers1(filename0)
+
 
 
 
