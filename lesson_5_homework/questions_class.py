@@ -1,15 +1,16 @@
 import pickle
 
-filename = 'correct_answers.dat'
+filename = 'questions.dat'
 
 
 class Questions:
-    def __init__(self, question=None, ans1=None, ans2=None,ans3=None,ans4=None):
+    def __init__(self, question=None, ans1=None, ans2=None,ans3=None,ans4=None, correct=None):
         self._question = question
         self._ans_1 = ans1
         self._ans_2 = ans2
         self._ans_3 = ans3
         self._ans_4 = ans4
+        self._correct = correct
 
     def input_question(self):
         question = input('Input question: ')
@@ -31,6 +32,10 @@ class Questions:
         ans_4 = input('Input answer 4: ')
         self._ans_4 = ans_4
 
+    def input_correct(self):
+        correct = input('Input correct answer: ')
+        self._correct = correct
+
     def ret_question(self):
         return self._question
 
@@ -46,12 +51,15 @@ class Questions:
     def ret_ans_4(self):
         return self._ans_4
 
+    def ret_correct(self):
+        return self._correct
 
+    def __str__(self):
+        return 'Variant 1: '+str(self.ret_ans_1())+'  Variant 2 : '+str(self.ret_ans_2())+'  Variant 3: '+str(self.ret_ans_3())+'  Variant 4 : '+str(self.ret_ans_4())
 
-
-def load_questions(filename0):
+def load_questions(filename):
     try:
-        input_file = open(filename0, 'rb')
+        input_file = open(filename, 'rb')
         questions = pickle.load(input_file)
         input_file.close()
     except IOError:
@@ -79,19 +87,20 @@ def get_menu_choice_questions():
     return choice
 
 def questions_input():
-   questions = Questions()
+   questions1 = Questions()
+   questions = {}
    for person_num in range(0, 10):
-      questions.input_question()
-      questions.input_ans_1()
-      questions.input_ans_2()
-      questions.input_ans_3()
-      questions.input_ans_4()
+      questions1.input_question()
+      questions1.input_ans_1()
+      questions1.input_ans_2()
+      questions1.input_ans_3()
+      questions1.input_ans_4()
 
-      question = questions.ret_question()
-      answer_1 = questions.ret_ans_1()
-      answer_2 = questions.ret_ans_2()
-      answer_3 = questions.ret_ans_3()
-      answer_4 = questions.ret_ans_4()
+      question = questions1.ret_question()
+      answer_1 = questions1.ret_ans_1()
+      answer_2 = questions1.ret_ans_2()
+      answer_3 = questions1.ret_ans_3()
+      answer_4 = questions1.ret_ans_4()
 
       items = Questions(question, answer_1, answer_2,answer_3,answer_4)
       questions[question] = items

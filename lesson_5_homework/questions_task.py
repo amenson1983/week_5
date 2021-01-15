@@ -12,10 +12,11 @@
    # init () , методы-
   #  Программа должна содержать список или словарь с 10 объектами Question, один для
   #  каждого вопроса викторины.
-from lesson_5_homework.answers import correct_answers_input, save_correct_answers, answers_input, save_user_answers
-from lesson_5_homework.questions_class import get_menu_choice_questions, questions_input, save_questions
+from lesson_5_homework.answers import correct_answers_input, save_correct_answers, answers_input, save_user_answers, \
+    CorrectAnswers, load_user_answers, load_correct_answers
+from lesson_5_homework.questions_class import get_menu_choice_questions, questions_input, save_questions, load_questions
 
-filename = 'correct_answers.dat'
+filename = 'questions.dat'
 filename1 = 'user_answers.dat'
 filename0 = 'questions.dat'
 create = 1
@@ -31,17 +32,33 @@ def main():
         choice = get_menu_choice_questions()
         if choice == create:
             questions = questions_input()
-            correct_answers = correct_answers_input()
-            save_correct_answers(correct_answers)
             save_questions(questions)
         elif choice == start_:
             user_answers = answers_input()
             save_user_answers(user_answers)
-        #elif choice == show_res:
+        elif choice == show_res:
+            user_answers = load_user_answers(filename1)
+            correct_answers = load_correct_answers(filename0)
+            count = 0
+            for key in user_answers:
+                    if correct_answers[key] == user_answers[key]:
+                        count +=1
+                    else: count +=0
+            print(count)
 
 
         #elif choice == clear_:
 
 
 if __name__ == '__main__':
+    #user_answers = load_user_answers(filename1)
+   # correct_answers = load_correct_answers(filename0)
+    #print((user_answers))
    main()
+   #questions = load_questions(filename)
+   #for key in questions:
+   #    print(key,questions[key])
+   #correct_answers = correct_answers_input()
+   #save_correct_answers(correct_answers)
+
+    u
