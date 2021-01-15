@@ -1,5 +1,6 @@
 from lesson_5_homework.cashregister_class_1 import load_items, get_menu_choice, show_bin, item_input, clear, \
     save_items_to_bin, CashRegister, load_sum, save_sum_to_bin
+import pickle
 
 show_ = 1
 choose_ = 2
@@ -31,4 +32,7 @@ def main():
     save_items_to_bin(my_items)
 
 if __name__ == '__main__':
-   main()
+   #main()
+   list_items = load_items(filename)
+   for key in list_items:
+    print(key, list_items[key])

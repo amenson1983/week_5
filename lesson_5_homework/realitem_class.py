@@ -14,7 +14,7 @@ class Realitem:
         self._stock = stock
 
     def input_price(self):
-        price = input('Input price: ')
+        price = input('Input ans1: ')
         self._price = price
 
 
@@ -52,5 +52,5 @@ def item_display_for_3(list_items):
       print()
       print('Description: ', item.ret_description())
       print('In stock: ', item.ret_stock())
-      print('Retail price: ', item.ret_price())
+      print('Retail ans1: ', item.ret_price())
       print()
