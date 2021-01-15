@@ -33,6 +33,4 @@ def main():
 
 if __name__ == '__main__':
    #main()
-   list_items = load_items(filename)
-   for key in list_items:
-    print(key, list_items[key])
+
